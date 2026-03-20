@@ -45,6 +45,30 @@ python chebfeatdepth.py --data_dir path/to/dataset --batch_size 4 --epochs 50 --
 ### Testing & Visualization
 The pipeline automatically tests the best model at the end of training. It saves side-by-side visualizations (Input | Ground Truth | Prediction) inside an output `test_results/` folder.
 
+
+## Architecture Overview
+
+1. **Image to Graph**  
+   - Input image is segmented into superpixels (SLIC) or a regular grid.  
+   - Nodes: superpixel centers (or grid points).  
+   - Node features: RGB values at the node location + normalized (x,y) coordinates.  
+   - Edges: k‑nearest neighbors (k=8).
+
+2. **ChebNet Feature Extractor**  
+   - Multiple Chebyshev graph convolution layers (K=3).  
+   - Global attention pooling to aggregate node features.  
+   - Output: per‑node features (and pooled global features).
+
+3. **Graph to Image Projection**  
+   - Barycentric interpolation via Delaunay triangulation to map node features back to every pixel.
+
+4. **Depth Head**  
+   - A lightweight CNN decoder (convolutional layers with upsampling) that takes the projected feature map and predicts a depth map (sigmoid output, depth normalized to [0,1]).
+
+5. **Training Losses**  
+   - MSE + gradient matching + edge‑aware smoothness + graph regularization (Dirichlet energy).  
+   - Combined to encourage accurate and smooth depth maps.
+
 ## 🏗️ Pipeline Architecture
 1. `ImageToGraphConverter`: Converts RGB -> Lab Space -> SLIC Superpixels -> k-NN Graph.
 2. `ChebNetFeatureExtractor`: Multi-layer Chebyshev Graph Convolutions with global attention pooling.
