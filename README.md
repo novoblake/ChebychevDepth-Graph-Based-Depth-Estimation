@@ -51,10 +51,7 @@ The pipeline automatically tests the best model at the end of training. It saves
 3. `GraphToImageProjector`: Barycentric coordinate mapping from graph nodes back to a dense grid.
 4. `DepthEstimationHead`: Upsampling CNN layers that produce a normalized `[0,1]` depth map.
 
-## 👥 Contributors
-- [Your Name/Handle]
-- [Group Member 2]
-- [Group Member 3]
 
----
-*Built for [Course Name / Group Project Name]*
+--------------------------------------------------------
+Ishan Narayan
+ishannarayan.in@gmail.com, ishan.csio21a@acsir.res.in
