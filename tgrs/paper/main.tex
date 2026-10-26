@@ -1,0 +1,42 @@
+\documentclass[journal]{IEEEtran}
+
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{cite}
+\usepackage{xcolor}
+
+% Marks unfinished text; search for \todo to find what is left.
+\newcommand{\todo}[1]{\textcolor{red}{[TODO: #1]}}
+
+\begin{document}
+
+% Working title
+\title{ChebDepth: Graph-Based Monocular Depth Estimation with Chebyshev Graph Convolutions on Superpixel Graphs}
+
+\author{Ishan~Narayan
+\thanks{I. Narayan is with \todo{affiliation; add co-authors}. E-mail: ishannarayan.in@gmail.com}}
+
+\markboth{IEEE Transactions on Geoscience and Remote Sensing,~Vol.~XX, No.~X, \today}%
+{Narayan: ChebDepth}
+
+\maketitle
+
+\begin{abstract}
+\input{sections/abstract}
+\end{abstract}
+
+\begin{IEEEkeywords}
+Monocular depth estimation, graph convolutional networks, Chebyshev polynomials, superpixels, \todo{remote-sensing keywords}.
+\end{IEEEkeywords}
+
+\input{sections/introduction}
+\input{sections/related_work}
+\input{sections/method}
+\input{sections/experiments}
+\input{sections/conclusion}
+
+\bibliographystyle{IEEEtran}
+\bibliography{references}
+
+\end{document}

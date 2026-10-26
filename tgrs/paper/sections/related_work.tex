@@ -1,0 +1,14 @@
+\section{Related Work}
+\label{sec:related}
+
+\subsection{Monocular Depth Estimation}
+Learning-based monocular depth estimation was popularized by multi-scale CNNs \cite{eigen2014depth}.
+\todo{Survey CNN, transformer, and (if relevant) remote-sensing height-estimation methods.}
+
+\subsection{Graph Neural Networks and Spectral Convolutions}
+Spectral graph convolutions with Chebyshev polynomial filters \cite{defferrard2016chebnet} avoid an explicit eigendecomposition and give $K$-hop localized filters; the first-order case yields the widely used GCN \cite{kipf2017gcn}.
+\todo{GNNs applied to images / dense prediction.}
+
+\subsection{Superpixels as Graph Nodes}
+Superpixels such as SLIC \cite{achanta2012slic} provide a compact, boundary-adhering over-segmentation that is a natural source of graph nodes.
+\todo{Superpixel-graph methods for segmentation and dense prediction.}
